@@ -1,0 +1,16 @@
+Week 3 Dataset: Orders 2023 (Quarterly)
+Rows per quarter: 50000
+Total rows: 200000
+Columns: order_id, customer_id, product_id, category, subcategory, region, status,
+         order_year, order_month, order_day, price, quantity, discount, extended_price,
+         blob_a, blob_b, blob_c, optional_score
+Design notes: Wide table with large text blobs and low-cardinality fields to accentuate
+             Parquet projection and predicate pushdown benefits over CSV.
+Skew: Customer distribution uses Pareto to emulate heavy hitters.
+Temporal: Orders spread across each quarter of 2023.
+Usage: Students convert CSV to Parquet and compare eager vs lazy execution in Polars.
+Files generated:
+- specs data/wk03-parquet-optimization/data/orders_2023_Q1.csv
+- specs data/wk03-parquet-optimization/data/orders_2023_Q2.csv
+- specs data/wk03-parquet-optimization/data/orders_2023_Q3.csv
+- specs data/wk03-parquet-optimization/data/orders_2023_Q4.csv
